@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntranceUG - Ace IPMAT & CUET with India's Most Realistic Mocks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #3498db;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #f5f7fa 0%, #e4f1fe 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            box-shadow: 0 4px 6px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(39, 174, 96, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 120px;
+            background: linear-gradient(135deg, #1a3a5f 0%, #2c3e50 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/></svg>');
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--bg-light), transparent);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--white);
+            position: relative;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .hero-buttons .btn {
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            min-width: 200px;
+        }
+
+        .hero-buttons .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: #229954;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.5);
+        }
+
+        .hero-buttons .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .hero-buttons .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Free Course Section */
+        .free-course {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+            position: relative;
+            z-index: 5;
+        }
+
+        .free-course-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .course-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-cover {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .course-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-cover img {
+            transform: scale(1.05);
+        }
+
+        .free-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+        }
+
+        .course-details {
+            padding: 40px;
+        }
+
+        .course-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .course-description {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .course-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .course-feature {
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            font-size: 18px;
+        }
+
+        .course-feature i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .btn-course {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-course:hover {
+            background-color: #229954;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(39, 174, 96, 0.4);
+        }
+
+        /* Mock Tests Section */
+        .mock-tests {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+            z-index: 4;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+
+        .mock-tests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .mock-card {
+            background-color: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .mock-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mock-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .mock-badge.popular {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: none;
+            padding: 0;
+            font-size: 24px;
+        }
+
+        .mock-badge.popular i {
+            color: #f1c40f;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .mock-header {
+            padding: 25px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+
+        .mock-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .mock-rating {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .mock-rating i {
+            color: #f1c40f;
+            margin: 0 2px;
+        }
+
+        .mock-rating span {
+            margin-left: 8px;
+            font-size: 14px;
+        }
+
+        .mock-details {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mock-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .mock-price span {
+            font-size: 16px;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .mock-features {
+            margin-bottom: 25px;
+        }
+
+        .mock-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .mock-feature i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        .mock-count {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+
+        .mock-count i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+
+        .mock-footer {
+            margin-top: auto;
+            padding: 0 25px 25px;
+        }
+
+        .btn-mock {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-mock:hover {
+            background-color: #229954;
+            transform: translateY(-2px);
+        }
+
+        /* YouTube Section */
+        .youtube-section {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+            position: relative;
+            z-index: 3;
+        }
+
+        .youtube-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 30px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            font-size: 20px;
+            color: var(--text-light);
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 56px;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .expert-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 80px;
+            color: rgba(39, 174, 96, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Get in Touch Section */
+        .get-in-touch {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .get-in-touch-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            border: 5px solid var(--secondary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .profile-info h3 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .profile-info p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #229954;
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border-left: 5px solid var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(39, 174, 96, 0.05);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--secondary-color);
+            font-size: 20px;
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 25px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            position: relative;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+
+        .footer-col ul li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .footer-social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+        }
+
+        /* Mobile Responsive */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+
+            .get-in-touch-container {
+                grid-template-columns: 1fr;
+            }
+
+            .youtube-container {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                padding: 10px 0;
+                justify-content: space-between;
+            }
+
+            .logo {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+                order: 1;
+            }
+
+            nav {
+                width: 100%;
+                display: none;
+                order: 3;
+                margin-top: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .cta-buttons {
+                order: 2;
+                margin-left: auto;
+                display: flex;
+                gap: 10px;
+            }
+
+            .cta-buttons .btn {
+                padding: 8px 16px;
+                font-size: 14px;
+                min-width: auto;
+            }
+
+            .hero {
+                padding: 100px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero-buttons .btn {
+                width: 220px;
+                padding: 14px 24px;
+                font-size: 16px;
+            }
+
+            .mock-tests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-features {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .free-course-container {
+                max-width: 95%;
+            }
+
+            .course-cover {
+                height: 200px;
+            }
+
+            .course-details {
+                padding: 30px 20px;
+            }
+
+            .course-title {
+                font-size: 26px;
+            }
+
+            .course-description {
+                font-size: 16px;
+            }
+
+            .course-feature {
+                font-size: 16px;
+            }
+
+            .btn-course {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+
+            .youtube-container {
+                max-width: 95%;
+            }
+
+            .video-description {
+                font-size: 18px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="https://z-cdn-media.chatglm.cn/files/26405621-e04c-4c35-bcec-8b5bac71df91_logo.png?auth_key=1792546200-822b4429ca424636ab243d4f0eb0c7a8-0-eba4ccc0be7effb6962c4bd9dd4941f8" alt="EntranceUG Logo">
+            </a>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#mock-tests">Mock Tests</a></li>
+                    <li><a href="#free-course">Courses</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#get-in-touch">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-secondary">Login</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Ace IPMAT & CUET with India's Most Realistic Mocks.</h1>
+            <p class="subtitle">Join thousands of successful students who transformed their entrance exam preparation with our comprehensive test series</p>
+            <div class="hero-buttons">
+                <a href="#free-course" class="btn btn-primary">Start Free Mock Test</a>
+                <a href="#mock-tests" class="btn btn-secondary">Explore Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Course Section -->
+    <section class="free-course" id="free-course">
+        <div class="container">
+            <h2 class="section-title">Free Course</h2>
+            <div class="free-course-container fade-in">
+                <div class="course-card">
+                    <div class="course-cover">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Daily RC Practice">
+                        <div class="free-badge">Free</div>
+                    </div>
+                    <div class="course-details">
+                        <h3 class="course-title">Daily RC Practice</h3>
+                        <p class="course-description">
+                            Improve your reading comprehension skills with our daily practice passages. 
+                            Each day we provide a new passage with questions to help you master RC for entrance exams.
+                        </p>
+                        <div class="course-features">
+                            <div class="course-feature">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Daily Updates</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Varied Difficulty</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Solutions Included</span>
+                            </div>
+                        </div>
+                        <button class="btn-course">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mock Tests Section -->
+    <section class="mock-tests" id="mock-tests">
+        <div class="container">
+            <h2 class="section-title">IPMAT & CUET Mocks</h2>
+            <p class="section-subtitle">Ace your preparation with the BEST!</p>
+            <div class="mock-tests-grid">
+                <div class="mock-card fade-in">
+                    <div class="mock-badge popular"><i class="fas fa-crown"></i></div>
+                    <div class="mock-header">
+                        <h3 class="mock-title">IPMAT Indore</h3>
+                        <div class="mock-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.8 (324 reviews)</span>
+                        </div>
+                    </div>
+                    <div class="mock-details">
+                        <div class="mock-price">₹ 999 <span>₹ 1499</span></div>
+                        <div class="mock-features">
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>15 Full-length Mock Tests</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Detailed Solutions & Explanations</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Section-wise Performance Analysis</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Access until Exam Date</span>
+                            </div>
+                        </div>
+                        <div class="mock-count">
+                            <i class="fas fa-users"></i>
+                            <span>5,000+ Students Enrolled</span>
+                        </div>
+                    </div>
+                    <div class="mock-footer">
+                        <button class="btn-mock">Buy Now</button>
+                    </div>
+                </div>
+                <div class="mock-card fade-in">
+                    <div class="mock-badge popular"><i class="fas fa-crown"></i></div>
+                    <div class="mock-header">
+                        <h3 class="mock-title">IIM Bangalore BSc Test</h3>
+                        <div class="mock-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (187 reviews)</span>
+                        </div>
+                    </div>
+                    <div class="mock-details">
+                        <div class="mock-price">₹ 799 <span>₹ 1299</span></div>
+                        <div class="mock-features">
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>10 Full-length Mock Tests</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Detailed Solutions & Explanations</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Topic-wise Tests</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Performance Comparison</span>
+                            </div>
+                        </div>
+                        <div class="mock-count">
+                            <i class="fas fa-users"></i>
+                            <span>3,200+ Students Enrolled</span>
+                        </div>
+                    </div>
+                    <div class="mock-footer">
+                        <button class="btn-mock">Buy Now</button>
+                    </div>
+                </div>
+                <div class="mock-card fade-in">
+                    <div class="mock-header">
+                        <h3 class="mock-title">JIPMAT</h3>
+                        <div class="mock-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.2 (98 reviews)</span>
+                        </div>
+                    </div>
+                    <div class="mock-details">
+                        <div class="mock-price">₹ 999 <span>₹ 1399</span></div>
+                        <div class="mock-features">
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>15 Full-length Mock Tests</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Detailed Solutions & Explanations</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Previous Year Papers</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Time-based Analysis</span>
+                            </div>
+                        </div>
+                        <div class="mock-count">
+                            <i class="fas fa-users"></i>
+                            <span>2,100+ Students Enrolled</span>
+                        </div>
+                    </div>
+                    <div class="mock-footer">
+                        <button class="btn-mock">BUY NOW</button>
+                    </div>
+                </div>
+                <div class="mock-card fade-in">
+                    <div class="mock-header">
+                        <h3 class="mock-title">IPMAT Rohtak</h3>
+                        <div class="mock-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.6 (156 reviews)</span>
+                        </div>
+                    </div>
+                    <div class="mock-details">
+                        <div class="mock-price">₹ 799 <span>₹ 1199</span></div>
+                        <div class="mock-features">
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>10 Full-length Mock Tests</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Detailed Solutions & Explanations</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Difficulty Level Analysis</span>
+                            </div>
+                            <div class="mock-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Performance Tracking</span>
+                            </div>
+                        </div>
+                        <div class="mock-count">
+                            <i class="fas fa-users"></i>
+                            <span>2,800+ Students Enrolled</span>
+                        </div>
+                    </div>
+                    <div class="mock-footer">
+                        <button class="btn-mock">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Section -->
+    <section class="youtube-section">
+        <div class="container">
+            <h2 class="section-title">How Our Mock Tests Work</h2>
+            <div class="youtube-container fade-in">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/JylZjn8J0fg" title="How Our Mock Tests Work" allowfullscreen></iframe>
+                </div>
+                <p class="video-description">
+                    Watch our comprehensive guide on how to make the most of our mock tests. Learn about our unique features, 
+                    detailed analysis, and how our platform can help you ace your entrance exams.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Designed for Your Success</h2>
+            <p class="section-subtitle">Mocks from Experts!</p>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="expert-badge">Expert</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Mocks from Experts</h3>
+                    <p>Our mock tests are designed by subject matter experts with years of experience in entrance exam preparation</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Detailed Analysis</h3>
+                    <p>Get comprehensive performance reports with section-wise breakdowns and personalized improvement suggestions</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Give Mocks at your own pace</h3>
+                    <p>Flexible scheduling allows you to take tests whenever you're ready, without any time pressure</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Save your pocket money with student friendly pricing!</h3>
+                    <p>Affordable pricing plans designed specifically for students, ensuring quality education doesn't break the bank</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Join a Learning Community</h3>
+                    <p>Connect with fellow aspirants, share study materials, and learn from each other's experiences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">WHAT Aspirants say about our Mocks!</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "I would recommend them that almost zero platforms are providing mocks for this particular exam right now and getting mocks from a student studying currently in the same programme will definitely help you so you shouldn't hesitate to buy them."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DS</div>
+                        <div class="author-info">
+                            <h4>Deepti Singh</h4>
+                            <p>DBE Aspirant</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "Definately if you wanna practice for dbe and only wanna stick to relivent practice then take these mocks . These mocks will definately act as a good practice material"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Such</h4>
+                            <p>DBE Aspirant</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "Better than any other mocks that you are planning to buy. All other main stream IIMB mocks are not even following the basic structure of the mocks on the contrary these mocks are not only maintaining the format and structure also resembles with the difficulty level of the main exam."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info">
+                            <h4>Rudra Sharma</h4>
+                            <p>IIM Bangalore (DBE)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        "Vaibhav Goenka's IIMB BBA DBE mocks are a game-changer—well-structured with quality English, GK, LR, and Quants questions. They truly reflect the real exam level. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">NG</div>
+                        <div class="author-info">
+                            <h4>Naman Ghosh</h4>
+                            <p>IIM Bangalore (DBE)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section class="get-in-touch" id="get-in-touch">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="get-in-touch-container">
+                <div class="profile-section fade-in">
+                    <img src="https://z-cdn-media.chatglm.cn/files/8d06995e-6b59-469a-8e37-7db032812e9f_ajQ60askmeanything.png?auth_key=1792548989-4c97bcd9c87d43d6b27a0f40102e5a91-0-bc747543587b8c4bbe446f364179ea8e" alt="Vaibhav Goenka" class="profile-image">
+                    <div class="profile-info">
+                        <h3>Vaibhav Goenka</h3>
+                        <p>Founder & Entrance Exam Expert</p>
+                        <p>With over 5 years of experience in helping students ace their entrance exams, I'm passionate about creating quality mock tests that make a difference.</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Enter subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Have questions about our mock tests?We've got you covered!</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our mock tests are designed by experts who have extensive experience with entrance exams. They closely mimic the actual exam pattern, difficulty level, and time constraints to give you the most authentic practice experience.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>How realistic are your mock tests compared to the actual exams?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our mock tests are designed by experts who have extensive experience with entrance exams. They closely mimic the actual exam pattern, difficulty level, and time constraints to give you the most authentic practice experience.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Can I access the mock tests on my mobile device?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, our platform is fully responsive and works seamlessly on all devices including smartphones and tablets. You can practice anytime, anywhere.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Do you provide solutions and explanations for the questions?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Every question comes with detailed solutions and explanations to help you understand the concepts and improve your problem-solving skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About Us</h4>
+                    <p>EntranceUG provides the most realistic mock tests for IPMAT, CUET, and other entrance exams to help students achieve their dream of getting into top universities.</p>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#mock-tests">Mock Tests</a></li>
+                        <li><a href="#free-course">Courses</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#get-in-touch">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Courses</h4>
+                    <ul>
+                        <li><a href="#mock-tests">IPMAT Mock Tests</a></li>
+                        <li><a href="#mock-tests">CUET Mock Tests</a></li>
+                        <li><a href="#mock-tests">DBE Mock Tests</a></li>
+                        <li><a href="#">BBA Entrance</a></li>
+                        <li><a href="#">Study Material</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Education Street, Delhi, India</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@entranceug.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EntranceUG. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            document.getElementById('main-nav').classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ item
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (name && email && subject && message) {
+                // Create success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'alert alert-success';
+                successMessage.textContent = 'Thank you for your message! We will get back to you soon.';
+                successMessage.style.padding = '15px';
+                successMessage.style.marginTop = '20px';
+                successMessage.style.borderRadius = '5px';
+                successMessage.style.backgroundColor = '#d4edda';
+                successMessage.style.color = '#155724';
+                
+                // Insert success message
+                this.appendChild(successMessage);
+                
+                // Reset form
+                this.reset();
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 5000);
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
